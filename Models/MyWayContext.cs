@@ -15,29 +15,27 @@ public partial class MyWayContext : DbContext
     {
     }
 
-    public virtual DbSet<Event> Events { get; set; }
+    public virtual DbSet<Event> Events { get; set; } = null!;
 
-    public virtual DbSet<Grade> Grades { get; set; }
+    public virtual DbSet<Grade> Grades { get; set; } = null!;
 
-    public virtual DbSet<Institution> Institutions { get; set; }
+    public virtual DbSet<Institution> Institutions { get; set; } = null!;
 
-    public virtual DbSet<Occupation> Occupations { get; set; }
+    public virtual DbSet<Occupation> Occupations { get; set; } = null!;
 
-    public virtual DbSet<Record> Records { get; set; }
+    public virtual DbSet<Record> Records { get; set; } = null!;
 
-    public virtual DbSet<Scale> Scales { get; set; }
+    public virtual DbSet<Scale> Scales { get; set; } = null!;
 
-    public virtual DbSet<Skill> Skills { get; set; }
+    public virtual DbSet<Skill> Skills { get; set; } = null!;
 
-    public virtual DbSet<User> Users { get; set; }
+    public virtual DbSet<User> Users { get; set; } = null!;
 
-    public virtual DbSet<ViewGradeScale> ViewGradeScales { get; set; }
+    public virtual DbSet<ViewGradeScale> ViewGradeScales { get; set; } = null!;
 
-    public virtual DbSet<ViewUserRecord> ViewUserRecords { get; set; }
+    public virtual DbSet<ViewUserRecord> ViewUserRecords { get; set; } = null!;
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=127.0.0.1,1433;Database=MyWay;User Id=sa;Password=@bgGBGIBS1997;TrustServerCertificate=True;Encrypt=False;");
+    // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
