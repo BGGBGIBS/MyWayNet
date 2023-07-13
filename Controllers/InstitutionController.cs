@@ -9,6 +9,8 @@ using MyWayNet.Models;
 
 namespace MyWayNet.Controllers
 {
+    [ApiController]
+    [Route("api/[controller]")]
     public class InstitutionController : Controller
     {
         private readonly MyWayContext _context;
@@ -19,6 +21,8 @@ namespace MyWayNet.Controllers
         }
 
         // GET: Institution
+        [HttpGet]
+        // [Route("Index")]
         public async Task<IActionResult> Index()
         {
               return _context.Institutions != null ? 
@@ -27,6 +31,8 @@ namespace MyWayNet.Controllers
         }
 
         // GET: Institution/Details/5
+        [HttpGet]
+        [Route("Details/{id?}")]
         public async Task<IActionResult> Details(long? id)
         {
             if (id == null || _context.Institutions == null)
@@ -45,6 +51,8 @@ namespace MyWayNet.Controllers
         }
 
         // GET: Institution/Create
+        [HttpGet]
+        [Route("Create")]
         public IActionResult Create()
         {
             return View();
@@ -55,6 +63,7 @@ namespace MyWayNet.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("Create")]
         public async Task<IActionResult> Create([Bind("InstitutionId,InstitutionName,InstitutionType,InstitutionAddress")] Institution institution)
         {
             if (ModelState.IsValid)
@@ -67,6 +76,8 @@ namespace MyWayNet.Controllers
         }
 
         // GET: Institution/Edit/5
+        [HttpGet]
+        [Route("Edit/{id?}")]
         public async Task<IActionResult> Edit(long? id)
         {
             if (id == null || _context.Institutions == null)
@@ -87,6 +98,7 @@ namespace MyWayNet.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("Edit/{id}")]
         public async Task<IActionResult> Edit(long id, [Bind("InstitutionId,InstitutionName,InstitutionType,InstitutionAddress")] Institution institution)
         {
             if (id != institution.InstitutionId)
@@ -118,6 +130,8 @@ namespace MyWayNet.Controllers
         }
 
         // GET: Institution/Delete/5
+        [HttpGet]
+        [Route("Delete/{id?}")]
         public async Task<IActionResult> Delete(long? id)
         {
             if (id == null || _context.Institutions == null)
@@ -138,6 +152,9 @@ namespace MyWayNet.Controllers
         // POST: Institution/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        // [HttpPost]
+        // [Route("Delete/{id}")]
+
         public async Task<IActionResult> DeleteConfirmed(long id)
         {
             if (_context.Institutions == null)

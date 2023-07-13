@@ -9,6 +9,8 @@ using MyWayNet.Models;
 
 namespace MyWayNet.Controllers
 {
+    [ApiController]
+    [Route("[controller]")]
     public class UserController : Controller
     {
         private readonly MyWayContext _context;

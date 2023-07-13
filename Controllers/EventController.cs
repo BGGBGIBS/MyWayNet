@@ -9,6 +9,8 @@ using MyWayNet.Models;
 
 namespace MyWayNet.Controllers
 {
+    [ApiController]
+[Route("[controller]")]
     public class EventController : Controller
     {
         private readonly MyWayContext _context;
@@ -33,16 +35,16 @@ namespace MyWayNet.Controllers
                 return NotFound();
             }
 
-            var @event = await _context.Events
+            var eventM = await _context.Events
                 .Include(e => e.Institution)
                 .Include(e => e.Occupation)
                 .FirstOrDefaultAsync(m => m.EventId == id);
-            if (@event == null)
+            if (eventM == null)
             {
                 return NotFound();
             }
 
-            return View(@event);
+            return View(eventM);
         }
 
         // GET: Event/Create
@@ -58,17 +60,17 @@ namespace MyWayNet.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("EventId,EventBegin,EventEnd,OccupationId,InstitutionId,EventType")] Event event)
+        public async Task<IActionResult> Create([Bind("EventId,EventBegin,EventEnd,OccupationId,InstitutionId,EventType")] Event eventM)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(@event);
+                _context.Add(eventM);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["InstitutionId"] = new SelectList(_context.Institutions, "InstitutionId", "InstitutionId", event.InstitutionId);
-            ViewData["OccupationId"] = new SelectList(_context.Occupations, "OccupationId", "OccupationId", event.OccupationId);
-            return View(@event);
+            ViewData["InstitutionId"] = new SelectList(_context.Institutions, "InstitutionId", "InstitutionId", eventM.InstitutionId);
+            ViewData["OccupationId"] = new SelectList(_context.Occupations, "OccupationId", "OccupationId", eventM.OccupationId);
+            return View(eventM);
         }
 
         // GET: Event/Edit/5
@@ -79,14 +81,14 @@ namespace MyWayNet.Controllers
                 return NotFound();
             }
 
-            var event = await _context.Events.FindAsync(id);
-            if (event == null)
+            var eventM = await _context.Events.FindAsync(id);
+            if (eventM == null)
             {
                 return NotFound();
             }
-            ViewData["InstitutionId"] = new SelectList(_context.Institutions, "InstitutionId", "InstitutionId", event.InstitutionId);
-            ViewData["OccupationId"] = new SelectList(_context.Occupations, "OccupationId", "OccupationId", event.OccupationId);
-            return View(@event);
+            ViewData["InstitutionId"] = new SelectList(_context.Institutions, "InstitutionId", "InstitutionId", eventM.InstitutionId);
+            ViewData["OccupationId"] = new SelectList(_context.Occupations, "OccupationId", "OccupationId", eventM.OccupationId);
+            return View(eventM);
         }
 
         // POST: Event/Edit/5
@@ -94,9 +96,9 @@ namespace MyWayNet.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id, [Bind("EventId,EventBegin,EventEnd,OccupationId,InstitutionId,EventType")] Event event)
+        public async Task<IActionResult> Edit(long id, [Bind("EventId,EventBegin,EventEnd,OccupationId,InstitutionId,EventType")] Event eventM)
         {
-            if (id != event.EventId)
+            if (id != eventM.EventId)
             {
                 return NotFound();
             }
@@ -105,12 +107,12 @@ namespace MyWayNet.Controllers
             {
                 try
                 {
-                    _context.Update(event);
+                    _context.Update(eventM);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!EventExists(event.EventId))
+                    if (!EventExists(eventM.EventId))
                     {
                         return NotFound();
                     }
@@ -121,9 +123,9 @@ namespace MyWayNet.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["InstitutionId"] = new SelectList(_context.Institutions, "InstitutionId", "InstitutionId", event.InstitutionId);
-            ViewData["OccupationId"] = new SelectList(_context.Occupations, "OccupationId", "OccupationId", event.OccupationId);
-            return View(event);
+            ViewData["InstitutionId"] = new SelectList(_context.Institutions, "InstitutionId", "InstitutionId", eventM.InstitutionId);
+            ViewData["OccupationId"] = new SelectList(_context.Occupations, "OccupationId", "OccupationId", eventM.OccupationId);
+            return View(eventM);
         }
 
         // GET: Event/Delete/5
@@ -134,16 +136,16 @@ namespace MyWayNet.Controllers
                 return NotFound();
             }
 
-            var @event = await _context.Events
+            var eventM = await _context.Events
                 .Include(e => e.Institution)
                 .Include(e => e.Occupation)
                 .FirstOrDefaultAsync(m => m.EventId == id);
-            if (event == null)
+            if (eventM == null)
             {
                 return NotFound();
             }
 
-            return View(event);
+            return View(eventM);
         }
 
         // POST: Event/Delete/5
@@ -155,10 +157,10 @@ namespace MyWayNet.Controllers
             {
                 return Problem("Entity set 'MyWayContext.Events'  is null.");
             }
-            var event = await _context.Events.FindAsync(id);
-            if (event != null)
+            var eventM = await _context.Events.FindAsync(id);
+            if (eventM != null)
             {
-                _context.Events.Remove(event);
+                _context.Events.Remove(eventM);
             }
             
             await _context.SaveChangesAsync();

@@ -9,6 +9,8 @@ using MyWayNet.Models;
 
 namespace MyWayNet.Controllers
 {
+    [ApiController]
+[Route("[controller]")]
     public class RecordController : Controller
     {
         private readonly MyWayContext _context;
@@ -38,12 +40,12 @@ namespace MyWayNet.Controllers
                 .Include(r => r.Grade)
                 .Include(r => r.Skill)
                 .FirstOrDefaultAsync(m => m.RecordId == id);
-            if (rrecord == null)
+            if (record == null)
             {
                 return NotFound();
             }
 
-            return View(rrecord);
+            return View(record);
         }
 
         // GET: Record/Create
@@ -71,7 +73,7 @@ namespace MyWayNet.Controllers
             ViewData["EventId"] = new SelectList(_context.Events, "EventId", "EventId", record.EventId);
             ViewData["GradeId"] = new SelectList(_context.Grades, "GradeId", "GradeId", record.GradeId);
             ViewData["SkillId"] = new SelectList(_context.Skills, "SkillId", "SkillId", record.SkillId);
-            return View(rrecord);
+            return View(record);
         }
 
         // GET: Record/Edit/5
