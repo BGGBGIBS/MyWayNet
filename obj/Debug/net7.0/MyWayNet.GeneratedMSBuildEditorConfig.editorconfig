@@ -15,3 +15,147 @@ build_property.SupportLocalizedComponentNames =
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
 build_property.MSBuildProjectDirectory = /Users/baptistegrosjean/Source/MyWay/BackEnd/MyWayNet
 build_property._RazorSourceGeneratorDebug = 
+
+[/Users/baptistegrosjean/Source/MyWay/BackEnd/MyWayNet/Views/Event/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRXZlbnQvQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/baptistegrosjean/Source/MyWay/BackEnd/MyWayNet/Views/Event/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRXZlbnQvRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/baptistegrosjean/Source/MyWay/BackEnd/MyWayNet/Views/Event/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRXZlbnQvRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/baptistegrosjean/Source/MyWay/BackEnd/MyWayNet/Views/Event/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRXZlbnQvRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/baptistegrosjean/Source/MyWay/BackEnd/MyWayNet/Views/Event/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRXZlbnQvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/baptistegrosjean/Source/MyWay/BackEnd/MyWayNet/Views/Grade/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvR3JhZGUvQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/baptistegrosjean/Source/MyWay/BackEnd/MyWayNet/Views/Grade/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvR3JhZGUvRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/baptistegrosjean/Source/MyWay/BackEnd/MyWayNet/Views/Grade/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvR3JhZGUvRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/baptistegrosjean/Source/MyWay/BackEnd/MyWayNet/Views/Grade/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvR3JhZGUvRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/baptistegrosjean/Source/MyWay/BackEnd/MyWayNet/Views/Grade/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvR3JhZGUvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/baptistegrosjean/Source/MyWay/BackEnd/MyWayNet/Views/Institution/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSW5zdGl0dXRpb24vQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/baptistegrosjean/Source/MyWay/BackEnd/MyWayNet/Views/Institution/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSW5zdGl0dXRpb24vRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/baptistegrosjean/Source/MyWay/BackEnd/MyWayNet/Views/Institution/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSW5zdGl0dXRpb24vRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/baptistegrosjean/Source/MyWay/BackEnd/MyWayNet/Views/Institution/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSW5zdGl0dXRpb24vRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/baptistegrosjean/Source/MyWay/BackEnd/MyWayNet/Views/Institution/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSW5zdGl0dXRpb24vSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/baptistegrosjean/Source/MyWay/BackEnd/MyWayNet/Views/Occupation/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvT2NjdXBhdGlvbi9DcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/baptistegrosjean/Source/MyWay/BackEnd/MyWayNet/Views/Occupation/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvT2NjdXBhdGlvbi9EZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/baptistegrosjean/Source/MyWay/BackEnd/MyWayNet/Views/Occupation/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvT2NjdXBhdGlvbi9EZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/baptistegrosjean/Source/MyWay/BackEnd/MyWayNet/Views/Occupation/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvT2NjdXBhdGlvbi9FZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/baptistegrosjean/Source/MyWay/BackEnd/MyWayNet/Views/Occupation/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvT2NjdXBhdGlvbi9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/baptistegrosjean/Source/MyWay/BackEnd/MyWayNet/Views/Scale/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2NhbGUvQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/baptistegrosjean/Source/MyWay/BackEnd/MyWayNet/Views/Scale/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2NhbGUvRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/baptistegrosjean/Source/MyWay/BackEnd/MyWayNet/Views/Scale/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2NhbGUvRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/baptistegrosjean/Source/MyWay/BackEnd/MyWayNet/Views/Scale/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2NhbGUvRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/baptistegrosjean/Source/MyWay/BackEnd/MyWayNet/Views/Scale/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2NhbGUvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/baptistegrosjean/Source/MyWay/BackEnd/MyWayNet/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/baptistegrosjean/Source/MyWay/BackEnd/MyWayNet/Views/Skill/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2tpbGwvQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/baptistegrosjean/Source/MyWay/BackEnd/MyWayNet/Views/Skill/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2tpbGwvRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/baptistegrosjean/Source/MyWay/BackEnd/MyWayNet/Views/Skill/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2tpbGwvRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/baptistegrosjean/Source/MyWay/BackEnd/MyWayNet/Views/Skill/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2tpbGwvRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/baptistegrosjean/Source/MyWay/BackEnd/MyWayNet/Views/Skill/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2tpbGwvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/baptistegrosjean/Source/MyWay/BackEnd/MyWayNet/Views/User/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlci9DcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/baptistegrosjean/Source/MyWay/BackEnd/MyWayNet/Views/User/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlci9EZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/baptistegrosjean/Source/MyWay/BackEnd/MyWayNet/Views/User/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlci9EZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/baptistegrosjean/Source/MyWay/BackEnd/MyWayNet/Views/User/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlci9FZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/baptistegrosjean/Source/MyWay/BackEnd/MyWayNet/Views/User/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlci9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 

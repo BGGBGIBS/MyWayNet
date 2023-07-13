@@ -1,0 +1,47 @@
+@model IEnumerable<MyWayNet.Models.Institution>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.InstitutionName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InstitutionType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InstitutionAddress)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.InstitutionName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InstitutionType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InstitutionAddress)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.InstitutionId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.InstitutionId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.InstitutionId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,7 +1,7 @@
 .env*
 bin
 obj
-
+gen.txt
 # globs
 Makefile.in
 *.userprefs

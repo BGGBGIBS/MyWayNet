@@ -1,0 +1,36 @@
+@model MyWayNet.Models.Institution
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Institution</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.InstitutionName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.InstitutionName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.InstitutionType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.InstitutionType)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.InstitutionAddress)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.InstitutionAddress)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.InstitutionId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

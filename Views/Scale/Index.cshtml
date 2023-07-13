@@ -1,0 +1,41 @@
+@model IEnumerable<MyWayNet.Models.Scale>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ScaleMin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ScaleMax)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ScaleMin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ScaleMax)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ScaleId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ScaleId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ScaleId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
