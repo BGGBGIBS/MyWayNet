@@ -10,7 +10,7 @@ using MyWayNet.Models;
 namespace MyWayNet.Controllers
 {
     [ApiController]
-[Route("[controller]")]
+    [Route("[controller]")]
     public class RecordController : Controller
     {
         private readonly MyWayContext _context;
@@ -21,6 +21,8 @@ namespace MyWayNet.Controllers
         }
 
         // GET: Record
+        [HttpGet]
+        [Route("Index")]
         public async Task<IActionResult> Index()
         {
             var myWayContext = _context.Records.Include(r => r.Event).Include(r => r.Grade).Include(r => r.Skill);
@@ -28,6 +30,8 @@ namespace MyWayNet.Controllers
         }
 
         // GET: Record/Details/5
+        [HttpGet]
+        [Route("Details/{id?}")]
         public async Task<IActionResult> Details(long? id)
         {
             if (id == null || _context.Records == null)
@@ -49,6 +53,8 @@ namespace MyWayNet.Controllers
         }
 
         // GET: Record/Create
+        [HttpGet]
+        [Route("Create")]
         public IActionResult Create()
         {
             ViewData["EventId"] = new SelectList(_context.Events, "EventId", "EventId");
@@ -62,6 +68,7 @@ namespace MyWayNet.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("Create")]
         public async Task<IActionResult> Create([Bind("RecordId,UserId,EventId,SkillId,GradeId")] Record record)
         {
             if (ModelState.IsValid)
@@ -77,6 +84,8 @@ namespace MyWayNet.Controllers
         }
 
         // GET: Record/Edit/5
+        [HttpGet]
+        [Route("Edit/{id?}")]
         public async Task<IActionResult> Edit(long? id)
         {
             if (id == null || _context.Records == null)
@@ -100,6 +109,7 @@ namespace MyWayNet.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("Edit/{id}")]
         public async Task<IActionResult> Edit(long id, [Bind("RecordId,UserId,EventId,SkillId,GradeId")] Record record)
         {
             if (id != record.RecordId)
@@ -134,6 +144,8 @@ namespace MyWayNet.Controllers
         }
 
         // GET: Record/Delete/5
+        [HttpGet]
+        [Route("Delete/{id?}")]
         public async Task<IActionResult> Delete(long? id)
         {
             if (id == null || _context.Records == null)
@@ -157,6 +169,8 @@ namespace MyWayNet.Controllers
         // POST: Record/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        // [HttpPost]
+        // [Route("Delete/{id}")]
         public async Task<IActionResult> DeleteConfirmed(long id)
         {
             if (_context.Records == null)
@@ -168,14 +182,14 @@ namespace MyWayNet.Controllers
             {
                 _context.Records.Remove(record);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool RecordExists(long id)
         {
-          return (_context.Records?.Any(e => e.RecordId == id)).GetValueOrDefault();
+            return (_context.Records?.Any(e => e.RecordId == id)).GetValueOrDefault();
         }
     }
 }

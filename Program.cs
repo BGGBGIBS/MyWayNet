@@ -12,7 +12,7 @@ var connectionString = Env.GetString("CONNECTION_STRING");
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<MyWayContext>(options =>
     options.UseSqlServer(connectionString)
 );

@@ -10,7 +10,7 @@ using MyWayNet.Models;
 namespace MyWayNet.Controllers
 {
     [ApiController]
-[Route("[controller]")]
+    [Route("[controller]")]
     public class OccupationController : Controller
     {
         private readonly MyWayContext _context;
@@ -21,14 +21,18 @@ namespace MyWayNet.Controllers
         }
 
         // GET: Occupation
+        [HttpGet]
+        [Route("Index")]
         public async Task<IActionResult> Index()
         {
-              return _context.Occupations != null ? 
-                          View(await _context.Occupations.ToListAsync()) :
-                          Problem("Entity set 'MyWayContext.Occupations'  is null.");
+            return _context.Occupations != null ?
+                        View(await _context.Occupations.ToListAsync()) :
+                        Problem("Entity set 'MyWayContext.Occupations'  is null.");
         }
 
         // GET: Occupation/Details/5
+        [HttpGet]
+        [Route("Details/{id?}")]
         public async Task<IActionResult> Details(long? id)
         {
             if (id == null || _context.Occupations == null)
@@ -47,6 +51,8 @@ namespace MyWayNet.Controllers
         }
 
         // GET: Occupation/Create
+        [HttpGet]
+        [Route("Create")]
         public IActionResult Create()
         {
             return View();
@@ -57,6 +63,7 @@ namespace MyWayNet.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("Create")]
         public async Task<IActionResult> Create([Bind("OccupationId,OccupationName,OccupationDescription")] Occupation occupation)
         {
             if (ModelState.IsValid)
@@ -69,6 +76,8 @@ namespace MyWayNet.Controllers
         }
 
         // GET: Occupation/Edit/5
+        [HttpGet]
+        [Route("Edit/{id?}")]
         public async Task<IActionResult> Edit(long? id)
         {
             if (id == null || _context.Occupations == null)
@@ -89,6 +98,7 @@ namespace MyWayNet.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("Edit/{id}")]
         public async Task<IActionResult> Edit(long id, [Bind("OccupationId,OccupationName,OccupationDescription")] Occupation occupation)
         {
             if (id != occupation.OccupationId)
@@ -120,6 +130,8 @@ namespace MyWayNet.Controllers
         }
 
         // GET: Occupation/Delete/5
+        [HttpGet]
+        [Route("Delete/{id?}")]
         public async Task<IActionResult> Delete(long? id)
         {
             if (id == null || _context.Occupations == null)
@@ -140,6 +152,8 @@ namespace MyWayNet.Controllers
         // POST: Occupation/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        // [HttpPost]
+        // [Route("Delete/{id}")]
         public async Task<IActionResult> DeleteConfirmed(long id)
         {
             if (_context.Occupations == null)
@@ -151,14 +165,14 @@ namespace MyWayNet.Controllers
             {
                 _context.Occupations.Remove(occupation);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool OccupationExists(long id)
         {
-          return (_context.Occupations?.Any(e => e.OccupationId == id)).GetValueOrDefault();
+            return (_context.Occupations?.Any(e => e.OccupationId == id)).GetValueOrDefault();
         }
     }
 }

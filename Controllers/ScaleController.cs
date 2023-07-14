@@ -10,7 +10,7 @@ using MyWayNet.Models;
 namespace MyWayNet.Controllers
 {
     [ApiController]
-[Route("[controller]")]
+    [Route("[controller]")]
     public class ScaleController : Controller
     {
         private readonly MyWayContext _context;
@@ -21,14 +21,18 @@ namespace MyWayNet.Controllers
         }
 
         // GET: Scale
+        [HttpGet]
+        [Route("Index")]
         public async Task<IActionResult> Index()
         {
-              return _context.Scales != null ? 
-                          View(await _context.Scales.ToListAsync()) :
-                          Problem("Entity set 'MyWayContext.Scales'  is null.");
+            return _context.Scales != null ?
+                        View(await _context.Scales.ToListAsync()) :
+                        Problem("Entity set 'MyWayContext.Scales'  is null.");
         }
 
         // GET: Scale/Details/5
+        [HttpGet]
+        [Route("Details/{id?}")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Scales == null)
@@ -47,6 +51,8 @@ namespace MyWayNet.Controllers
         }
 
         // GET: Scale/Create
+        [HttpGet]
+        [Route("Create")]
         public IActionResult Create()
         {
             return View();
@@ -57,6 +63,7 @@ namespace MyWayNet.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("Create")]
         public async Task<IActionResult> Create([Bind("ScaleId,ScaleMin,ScaleMax")] Scale scale)
         {
             if (ModelState.IsValid)
@@ -69,6 +76,8 @@ namespace MyWayNet.Controllers
         }
 
         // GET: Scale/Edit/5
+        [HttpGet]
+        [Route("Edit/{id?}")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Scales == null)
@@ -89,6 +98,7 @@ namespace MyWayNet.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("Edit/{id}")]
         public async Task<IActionResult> Edit(int id, [Bind("ScaleId,ScaleMin,ScaleMax")] Scale scale)
         {
             if (id != scale.ScaleId)
@@ -120,6 +130,8 @@ namespace MyWayNet.Controllers
         }
 
         // GET: Scale/Delete/5
+        [HttpGet]
+        [Route("Delete/{id?}")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Scales == null)
@@ -140,6 +152,8 @@ namespace MyWayNet.Controllers
         // POST: Scale/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        // [HttpPost]
+        // [Route("Delete/{id}")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.Scales == null)
@@ -151,14 +165,14 @@ namespace MyWayNet.Controllers
             {
                 _context.Scales.Remove(scale);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ScaleExists(int id)
         {
-          return (_context.Scales?.Any(e => e.ScaleId == id)).GetValueOrDefault();
+            return (_context.Scales?.Any(e => e.ScaleId == id)).GetValueOrDefault();
         }
     }
 }

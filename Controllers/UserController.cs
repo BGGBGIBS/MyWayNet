@@ -21,14 +21,18 @@ namespace MyWayNet.Controllers
         }
 
         // GET: User
+        [HttpGet]
+        [Route("Index")]
         public async Task<IActionResult> Index()
         {
-              return _context.Users != null ? 
-                          View(await _context.Users.ToListAsync()) :
-                          Problem("Entity set 'MyWayContext.Users'  is null.");
+            return _context.Users != null ?
+                        View(await _context.Users.ToListAsync()) :
+                        Problem("Entity set 'MyWayContext.Users'  is null.");
         }
 
         // GET: User/Details/5
+        [HttpGet]
+        [Route("Details/{id?}")]
         public async Task<IActionResult> Details(long? id)
         {
             if (id == null || _context.Users == null)
@@ -47,6 +51,8 @@ namespace MyWayNet.Controllers
         }
 
         // GET: User/Create
+        [HttpGet]
+        [Route("Create")]
         public IActionResult Create()
         {
             return View();
@@ -57,6 +63,7 @@ namespace MyWayNet.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("Create")]
         public async Task<IActionResult> Create([Bind("UserId,UserFirstname,UserLastname,UserEmail,UserBirthdate,UserAddress,UserRole,UserPassword")] User user)
         {
             if (ModelState.IsValid)
@@ -69,6 +76,8 @@ namespace MyWayNet.Controllers
         }
 
         // GET: User/Edit/5
+        [HttpGet]
+        [Route("Edit/{id?}")]
         public async Task<IActionResult> Edit(long? id)
         {
             if (id == null || _context.Users == null)
@@ -89,6 +98,7 @@ namespace MyWayNet.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("Edit/{id}")]
         public async Task<IActionResult> Edit(long id, [Bind("UserId,UserFirstname,UserLastname,UserEmail,UserBirthdate,UserAddress,UserRole,UserPassword")] User user)
         {
             if (id != user.UserId)
@@ -120,6 +130,8 @@ namespace MyWayNet.Controllers
         }
 
         // GET: User/Delete/5
+        [HttpGet]
+        [Route("Delete/{id?}")]
         public async Task<IActionResult> Delete(long? id)
         {
             if (id == null || _context.Users == null)
@@ -140,6 +152,8 @@ namespace MyWayNet.Controllers
         // POST: User/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        // [HttpPost]
+        // [Route("Delete/{id}")]
         public async Task<IActionResult> DeleteConfirmed(long id)
         {
             if (_context.Users == null)
@@ -151,14 +165,14 @@ namespace MyWayNet.Controllers
             {
                 _context.Users.Remove(user);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool UserExists(long id)
         {
-          return (_context.Users?.Any(e => e.UserId == id)).GetValueOrDefault();
+            return (_context.Users?.Any(e => e.UserId == id)).GetValueOrDefault();
         }
     }
 }

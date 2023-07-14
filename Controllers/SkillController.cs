@@ -10,7 +10,7 @@ using MyWayNet.Models;
 namespace MyWayNet.Controllers
 {
     [ApiController]
-[Route("[controller]")]
+    [Route("[controller]")]
     public class SkillController : Controller
     {
         private readonly MyWayContext _context;
@@ -21,14 +21,18 @@ namespace MyWayNet.Controllers
         }
 
         // GET: Skill
+        [HttpGet]
+        [Route("Index")]
         public async Task<IActionResult> Index()
         {
-              return _context.Skills != null ? 
-                          View(await _context.Skills.ToListAsync()) :
-                          Problem("Entity set 'MyWayContext.Skills'  is null.");
+            return _context.Skills != null ?
+                        View(await _context.Skills.ToListAsync()) :
+                        Problem("Entity set 'MyWayContext.Skills'  is null.");
         }
 
         // GET: Skill/Details/5
+        [HttpGet]
+        [Route("Details/{id?}")]
         public async Task<IActionResult> Details(long? id)
         {
             if (id == null || _context.Skills == null)
@@ -47,6 +51,8 @@ namespace MyWayNet.Controllers
         }
 
         // GET: Skill/Create
+        [HttpGet]
+        [Route("Create")]
         public IActionResult Create()
         {
             return View();
@@ -57,6 +63,7 @@ namespace MyWayNet.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("Create")]
         public async Task<IActionResult> Create([Bind("SkillId,SkillName,SkillDescription,SkillType")] Skill skill)
         {
             if (ModelState.IsValid)
@@ -69,6 +76,8 @@ namespace MyWayNet.Controllers
         }
 
         // GET: Skill/Edit/5
+        [HttpGet]
+        [Route("Edit/{id?}")]
         public async Task<IActionResult> Edit(long? id)
         {
             if (id == null || _context.Skills == null)
@@ -89,6 +98,7 @@ namespace MyWayNet.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("Edit/{id}")]
         public async Task<IActionResult> Edit(long id, [Bind("SkillId,SkillName,SkillDescription,SkillType")] Skill skill)
         {
             if (id != skill.SkillId)
@@ -120,6 +130,8 @@ namespace MyWayNet.Controllers
         }
 
         // GET: Skill/Delete/5
+        [HttpGet]
+        [Route("Delete/{id?}")]
         public async Task<IActionResult> Delete(long? id)
         {
             if (id == null || _context.Skills == null)
@@ -140,6 +152,8 @@ namespace MyWayNet.Controllers
         // POST: Skill/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        // [HttpPost]
+        // [Route("Delete/{id}")]
         public async Task<IActionResult> DeleteConfirmed(long id)
         {
             if (_context.Skills == null)
@@ -151,14 +165,14 @@ namespace MyWayNet.Controllers
             {
                 _context.Skills.Remove(skill);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool SkillExists(long id)
         {
-          return (_context.Skills?.Any(e => e.SkillId == id)).GetValueOrDefault();
+            return (_context.Skills?.Any(e => e.SkillId == id)).GetValueOrDefault();
         }
     }
 }

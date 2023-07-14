@@ -10,7 +10,7 @@ using MyWayNet.Models;
 namespace MyWayNet.Controllers
 {
     [ApiController]
-[Route("[controller]")]
+    [Route("[controller]")]
     public class GradeController : Controller
     {
         private readonly MyWayContext _context;
@@ -21,6 +21,8 @@ namespace MyWayNet.Controllers
         }
 
         // GET: Grade
+        [HttpGet]
+        [Route("Index")]
         public async Task<IActionResult> Index()
         {
             var myWayContext = _context.Grades.Include(g => g.Scale);
@@ -28,6 +30,8 @@ namespace MyWayNet.Controllers
         }
 
         // GET: Grade/Details/5
+        [HttpGet]
+        [Route("Details/{id?}")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Grades == null)
@@ -47,6 +51,8 @@ namespace MyWayNet.Controllers
         }
 
         // GET: Grade/Create
+        [HttpGet]
+        [Route("Create")]
         public IActionResult Create()
         {
             ViewData["ScaleId"] = new SelectList(_context.Scales, "ScaleId", "ScaleId");
@@ -58,6 +64,7 @@ namespace MyWayNet.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("Create")]
         public async Task<IActionResult> Create([Bind("GradeId,GradeName,GradeValue,ScaleId")] Grade grade)
         {
             if (ModelState.IsValid)
@@ -71,6 +78,8 @@ namespace MyWayNet.Controllers
         }
 
         // GET: Grade/Edit/5
+        [HttpGet]
+        [Route("Edit/{id?}")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Grades == null)
@@ -92,6 +101,7 @@ namespace MyWayNet.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("Edit/{id?}")]
         public async Task<IActionResult> Edit(int id, [Bind("GradeId,GradeName,GradeValue,ScaleId")] Grade grade)
         {
             if (id != grade.GradeId)
@@ -124,6 +134,8 @@ namespace MyWayNet.Controllers
         }
 
         // GET: Grade/Delete/5
+        [HttpGet]
+        [Route("Delete/{id?}")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Grades == null)
@@ -145,6 +157,8 @@ namespace MyWayNet.Controllers
         // POST: Grade/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        // [HttpPost]
+        // [Route("Delete/{id}")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.Grades == null)
@@ -156,14 +170,14 @@ namespace MyWayNet.Controllers
             {
                 _context.Grades.Remove(grade);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool GradeExists(int id)
         {
-          return (_context.Grades?.Any(e => e.GradeId == id)).GetValueOrDefault();
+            return (_context.Grades?.Any(e => e.GradeId == id)).GetValueOrDefault();
         }
     }
 }

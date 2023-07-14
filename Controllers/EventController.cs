@@ -10,7 +10,7 @@ using MyWayNet.Models;
 namespace MyWayNet.Controllers
 {
     [ApiController]
-[Route("[controller]")]
+    [Route("[controller]")]
     public class EventController : Controller
     {
         private readonly MyWayContext _context;
@@ -21,6 +21,8 @@ namespace MyWayNet.Controllers
         }
 
         // GET: Event
+        [HttpGet]
+        [Route("Index")]
         public async Task<IActionResult> Index()
         {
             var myWayContext = _context.Events.Include(e => e.Institution).Include(e => e.Occupation);
@@ -28,6 +30,7 @@ namespace MyWayNet.Controllers
         }
 
         // GET: Event/Details/5
+        [HttpGet]
         public async Task<IActionResult> Details(long? id)
         {
             if (id == null || _context.Events == null)
@@ -48,6 +51,7 @@ namespace MyWayNet.Controllers
         }
 
         // GET: Event/Create
+        [HttpGet]
         public IActionResult Create()
         {
             ViewData["InstitutionId"] = new SelectList(_context.Institutions, "InstitutionId", "InstitutionId");
@@ -60,6 +64,7 @@ namespace MyWayNet.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("Create")]
         public async Task<IActionResult> Create([Bind("EventId,EventBegin,EventEnd,OccupationId,InstitutionId,EventType")] Event eventM)
         {
             if (ModelState.IsValid)
@@ -74,6 +79,8 @@ namespace MyWayNet.Controllers
         }
 
         // GET: Event/Edit/5
+        [HttpGet]
+        [Route("Edit/{id?}")]
         public async Task<IActionResult> Edit(long? id)
         {
             if (id == null || _context.Events == null)
@@ -96,6 +103,7 @@ namespace MyWayNet.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("Edit/{id?}")]
         public async Task<IActionResult> Edit(long id, [Bind("EventId,EventBegin,EventEnd,OccupationId,InstitutionId,EventType")] Event eventM)
         {
             if (id != eventM.EventId)
@@ -129,6 +137,8 @@ namespace MyWayNet.Controllers
         }
 
         // GET: Event/Delete/5
+        [HttpGet]
+        [Route("Delete/{id?}")]
         public async Task<IActionResult> Delete(long? id)
         {
             if (id == null || _context.Events == null)
@@ -151,6 +161,8 @@ namespace MyWayNet.Controllers
         // POST: Event/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        // [HttpPost]
+        // [Route("Delete/{id}")]
         public async Task<IActionResult> DeleteConfirmed(long id)
         {
             if (_context.Events == null)
@@ -162,14 +174,14 @@ namespace MyWayNet.Controllers
             {
                 _context.Events.Remove(eventM);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool EventExists(long id)
         {
-          return (_context.Events?.Any(e => e.EventId == id)).GetValueOrDefault();
+            return (_context.Events?.Any(e => e.EventId == id)).GetValueOrDefault();
         }
     }
 }

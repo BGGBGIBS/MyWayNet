@@ -22,12 +22,12 @@ namespace MyWayNet.Controllers
 
         // GET: Institution
         [HttpGet]
-        // [Route("Index")]
+        [Route("Index")]
         public async Task<IActionResult> Index()
         {
-              return _context.Institutions != null ? 
-                          View(await _context.Institutions.ToListAsync()) :
-                          Problem("Entity set 'MyWayContext.Institutions'  is null.");
+            return _context.Institutions != null ?
+                        View(await _context.Institutions.ToListAsync()) :
+                        Problem("Entity set 'MyWayContext.Institutions'  is null.");
         }
 
         // GET: Institution/Details/5
@@ -166,14 +166,14 @@ namespace MyWayNet.Controllers
             {
                 _context.Institutions.Remove(institution);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool InstitutionExists(long id)
         {
-          return (_context.Institutions?.Any(e => e.InstitutionId == id)).GetValueOrDefault();
+            return (_context.Institutions?.Any(e => e.InstitutionId == id)).GetValueOrDefault();
         }
     }
 }
